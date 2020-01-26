@@ -13,7 +13,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cl
   useFindAndModify: false,
   useCreateIndex: true,
 });
- */
+*/
 
 mongoose.connect('mongodb://localhost/devradar')
     .then(() => console.log('Connected to MongoDB...'))
