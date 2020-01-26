@@ -33,3 +33,14 @@ POST http://localhost:4444/devs
     "__v": 0
 }
 
+
+PUT http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
+
+{
+	"github_username":"SmythyCosta", 
+	"techs": "Java",
+	"latitude": -27.2029052,
+	"longitude": -49.6401092
+}
+
+

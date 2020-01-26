@@ -22,25 +22,37 @@ module.exports = {
         let dev = await validateUsername(github_username);
 
         if (!dev) {
-          const response = await getUserData(github_username);
-          const { name = login, avatar_url, bio } = response.data;
-          const techsArray = parseStringAsArray(techs);
-          const location = pinPointLocation(longitude, latitude);
+            const response = await getUserData(github_username);
+            const { name = login, avatar_url, bio } = response.data;
+            const techsArray = parseStringAsArray(techs);
+            const location = pinPointLocation(longitude, latitude);
     
-          dev = await createDev(
-            github_username,
-            name,
-            avatar_url,
-            bio,
-            techsArray,
-            location)
+            dev = await createDev(
+                github_username,
+                name,
+                avatar_url,
+                bio,
+                techsArray,
+                location)
     
-          // filtrar as conexções que estão há no mx 10km de distÂncia 
-          // e que o novo dev tenha pelo menos uma das techs
-          //const sendSocketMessageTo = findConnections({ latitude, longitude }, techsArray);
+            // filtrar as conexções que estão há no mx 10km de distÂncia 
+            // e que o novo dev tenha pelo menos uma das techs
+            //const sendSocketMessageTo = findConnections({ latitude, longitude }, techsArray);
         }
     
         return res.json(dev);
-      },
+    },
+
+    async update(req, res) {
+        //nome avatar bio localização tecnologias
+        const { id } = req.params;
+        const { name, longitude, latitude, techs, bio } = req.body;
+
+        const techsArray = parseStringAsArray(techs);
+        const location = pinPointLocation(longitude, latitude);
+        const dev = await updateDevData(id, name, bio, techsArray, location);
+
+        return res.json(dev);
+    },
 
 };
