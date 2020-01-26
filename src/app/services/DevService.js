@@ -10,10 +10,15 @@ const Dev = require('../models/Dev');
 
  module.exports = {
 
+    async listDevs(req, res) {
+        const devs = await Dev.find();
+        return devs;
+      },
+
     async validateUsername(github_username) {
         const dev = Dev.findOne({ github_username })
         return dev
     },
 
-    
+
  }
