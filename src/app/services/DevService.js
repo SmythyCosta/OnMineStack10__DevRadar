@@ -50,5 +50,13 @@ const Dev = require('../models/Dev');
         return dev;
     },
 
+    async findDevToDelete(id) {
+        const dev = Dev.findById(id);
+        return dev
+    },
+    
+    async deleteDev(id) {
+        await Dev.findByIdAndDelete(id)
+    },
 
  }
