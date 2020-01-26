@@ -38,5 +38,17 @@ const Dev = require('../models/Dev');
         return dev;
     },
 
+    async updateDevData(id, name, bio, techs, location) {
+        //nome avatar bio localização tecnologias
+        const techsLowerCase = techs.map(tech => tech.toLowerCase())
+        const dev = await Dev.findByIdAndUpdate(id, {
+          name,
+          bio,
+          techs: techsLowerCase,
+          location
+        });
+        return dev;
+    },
+
 
  }
