@@ -4,10 +4,10 @@ const cors = require('cors');
 const http = require('http');
 
 const routes = require('./routes');
-import { settingsApp } from ('./settings.settingsApp');
+const settingsApp = require('./settings');
 
 const app = express();
-const server = http.Server(app);
+//const server = http.Server(app);
 
 
 /**
@@ -28,6 +28,12 @@ app.use(cors({ origin: settingsApp.ORIGIN_URL }))
 app.use(express.json());
 app.use(routes);
 
-server.listen(settingsApp.APP_PORT, () => {
-  console.log('Servidor funcionando na porta ' + settingsApp.APP_PORT)
-});
+// server.listen(process.env.APP_PORT, () => {
+//   console.log('Servidor funcionando na porta ' + process.env.APP_PORT)
+// });
+
+// server.listen(settingsApp.APP_PORT, () => {
+//   console.log('Servidor funcionando na porta ' + settingsApp.APP_PORT)
+// });
+
+app.listen(settingsApp.APP_PORT, () => console.log(`Listening on port ${settingsApp.APP_PORT}...`));

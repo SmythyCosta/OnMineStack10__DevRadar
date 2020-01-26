@@ -1,4 +1,4 @@
-export const settingsApp = {
+const settingsApp = {
 
     /*
     |--------------------------------------------------------------------------
@@ -6,7 +6,7 @@ export const settingsApp = {
     |--------------------------------------------------------------------------
     | 
     */
-    APP_PORT:3333,
+    APP_PORT:4444,
     BASE_URL:'http://localhost:3333',
     NODE_ENV:'development',
     
@@ -26,7 +26,6 @@ export const settingsApp = {
     | status da operações.
     */
 
-
     /*
     |--------------------------------------------------------------------------
     | Database
@@ -35,5 +34,6 @@ export const settingsApp = {
     */
     DB_USER:'',
     DB_PASS:''
-    
 };
+
+module.exports = settingsApp;
