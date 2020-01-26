@@ -12,7 +12,9 @@ const Dev = require('../models/Dev');
 const searchDevs = async (latitude, longitude, techs) => {
 
     const techsLowerCase = techs.map(tech => tech.toLowerCase())
-  
+    
+    // Mongo Operators
+    // https://docs.mongodb.com/manual/reference/operator/query/
     const devs = await Dev.find({
       techs: {
         $in: techsLowerCase,
