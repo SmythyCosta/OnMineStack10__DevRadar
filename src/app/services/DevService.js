@@ -25,5 +25,18 @@ const Dev = require('../models/Dev');
         return response;
     },
 
+    async createDev(github_username, name, avatar_url, bio, techs, location) {
+        const techsLowerCase = techs.map(tech => tech.toLowerCase())
+        dev = await Dev.create({
+          github_username,
+          name,
+          avatar_url,
+          bio,
+          techs: techsLowerCase,
+          location
+        })
+        return dev;
+    },
+
 
  }
