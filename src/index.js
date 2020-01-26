@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const http = require('http');
 
+const routes = require('./routes');
+import { settingsApp } from ('./settings.settingsApp');
+
 const app = express();
+const server = http.Server(app);
 
 
 /**
@@ -20,9 +24,10 @@ mongoose.connect('mongodb://localhost/devradar')
     .catch(err => console.error('Could not connect to MongoDB...')
 );
 
+app.use(cors({ origin: settingsApp.ORIGIN_URL }))
+app.use(express.json());
+app.use(routes);
 
-app.get('/', (req, res) => {
-    return res.json({ messege: "Hellou Word"});
+server.listen(settingsApp.APP_PORT, () => {
+  console.log('Servidor funcionando na porta ' + settingsApp.APP_PORT)
 });
-
-app.listen(3333);
