@@ -55,4 +55,16 @@ module.exports = {
         return res.json(dev);
     },
 
+    async destroy(req, res) {
+        const { id } = req.params;
+        const devExists = await findDevToDelete(id)
+        const result = devExists ? { message: `O usuário ${devExists.name} foi removido com sucesso!` } : { message: 'Usuário não encontrado!' }
+    
+        if (devExists) {
+          await deleteDev(id)
+        }
+    
+        return res.json(result)
+    }
+
 };
