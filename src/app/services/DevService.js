@@ -20,5 +20,10 @@ const Dev = require('../models/Dev');
         return dev
     },
 
+    async getUserData(github_username) {
+        const response = await github.get(`/${github_username}`);
+        return response;
+    },
+
 
  }
