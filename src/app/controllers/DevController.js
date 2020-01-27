@@ -1,5 +1,6 @@
 const parseStringAsArray = require('../utils/parseStringAsArray');
 const pinPointLocation = require('../utils/pinPointLocation');
+const { findConnections, sendMessage } = require('../../websocket');
 const { listDevs,
     validateUsername,
     getUserData,
@@ -37,7 +38,8 @@ module.exports = {
     
             // filtrar as conexções que estão há no mx 10km de distÂncia 
             // e que o novo dev tenha pelo menos uma das techs
-            //const sendSocketMessageTo = findConnections({ latitude, longitude }, techsArray);
+            const sendSocketMessageTo = findConnections({ latitude, longitude }, techsArray)
+            sendMessage(sendSocketMessageTo, 'newDev', dev)
         }
     
         return res.json(dev);

@@ -1,7 +1,7 @@
 
-GET http://localhost:4444/devs
+# GET http://localhost:4444/devs
 
-POST http://localhost:4444/devs
+# POST http://localhost:4444/devs
 
 {
 	"github_username":"SmythyCosta", 
@@ -34,7 +34,7 @@ POST http://localhost:4444/devs
 }
 
 
-PUT http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
+# PUT http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
 
 {
 	"github_username":"SmythyCosta", 
@@ -44,6 +44,6 @@ PUT http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
 }
 
 
-DELETE http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
+# DELETE http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
 
 
