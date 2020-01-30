@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const http = require('http');
+//const http = require('http');
 
 const routes = require('./routes');
 const { setupWebsocket } = require('./websocket');
@@ -9,7 +9,7 @@ const settingsApp = require('./settings');
 
 const app = express();
 //const server = http.Server(app);
-setupWebsocket(app);
+//setupWebsocket(app);
 
 
 /**
@@ -38,4 +38,15 @@ app.use(routes);
 //   console.log('Servidor funcionando na porta ' + settingsApp.APP_PORT)
 // });
 
-app.listen(settingsApp.APP_PORT, () => console.log(`Listening on port ${settingsApp.APP_PORT}...`));
+
+/**
+ * 
+ * https://stackoverflow.com/questions/25000275/socket-io-error-hooking-into-express-js
+ * Socket.io error hooking into express.js
+ */
+//app.listen(settingsApp.APP_PORT, () => console.log(`Listening on port ${settingsApp.APP_PORT}...`));
+const server = app.listen(settingsApp.APP_PORT, () => {
+  console.log("Listening on port: " + settingsApp.APP_PORT);
+});
+
+setupWebsocket(server);
