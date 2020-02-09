@@ -45,5 +45,3 @@
 
 
 # DELETE http://localhost:4444/devs/5e2ddbf5f4cd3b11743a5bda
-
-

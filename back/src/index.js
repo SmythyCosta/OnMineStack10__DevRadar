@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost/devradar')
     .catch(err => console.error('Could not connect to MongoDB...')
 );
 
-app.use(cors({ origin: settingsApp.ORIGIN_URL }))
+app.use(cors({ origin: settingsApp.APP_PORT }))
 app.use(express.json());
 app.use(routes);
 
